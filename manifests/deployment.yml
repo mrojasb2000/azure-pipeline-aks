@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: azurepipelineaks 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azurepipelineaks
+  template:
+    metadata:
+      labels:
+        app: azurepipelineaks 
+    spec:
+      containers:
+        - name: azurepipelineaks 
+          image: panquequedev.azurecr.io/azurepipelineaks
+          ports:
+          - containerPort: 8080
